@@ -7,16 +7,26 @@ import matplotlib.pyplot as plt
 ## 모의 고사 3회의 점수와 기말고사 점수를 사용해 아직 시험전인 학생의 시험점수를 예측하라
 
 ## 파일 로드 ## 텐서에서 제공하는 파일 큐 - 여러개의 파일을 배치로 가져다 쓸수 있다.
+<<<<<<< HEAD
 filename_queue = tf.train.string_input_producer(['./data-01-test-score.csv', './data-02-test-score.csv'], shuffle=False, name='scoreCard')
+=======
+filename_queue = tf.train.string_input_producer(['data-01-test-score.csv', 'data-02-test-score.csv']
+                                                , shuffle=False, name='scoreCard')
+>>>>>>> 23f6e5fbc63d06091d07e1b11455cf081d09e7f8
 
 reader = tf.TextLineReader()
 key, value = reader.read(filename_queue)
 
+<<<<<<< HEAD
 print(key)
 
 print(value)
+=======
+
+>>>>>>> 23f6e5fbc63d06091d07e1b11455cf081d09e7f8
 ## 레코드의 디폴트 타입 정의
 record_defaults = [[0.], [0.], [0.], [0.]]
+##CSV 타입으로 디코딩 디폴트밸류 적용
 xy = tf.decode_csv(value, record_defaults=record_defaults)
 
 ## 배치 데이터의 의 규격 정의
@@ -32,14 +42,19 @@ W = tf.Variable(tf.random_normal([3, 1]), name='weight')
 ## 바이어스
 b = tf.Variable(tf.random_normal([1]), name='bias')
 
-##
+## 가설
 hypothesis = tf.matmul(X, W) + b
 
 ## cost
 cost = tf.reduce_mean(tf.square(hypothesis - Y))
 
+<<<<<<< HEAD
 ## optimizer - 텐서플로에서 제공하는 경사하강법 코스트를 최소화 하게 설정 학습 간격은 0.01
 optimizer = tf.train.GradientDescentOptimizer(learning_rate=1e-5)
+=======
+## opt
+optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.00001)
+>>>>>>> 23f6e5fbc63d06091d07e1b11455cf081d09e7f8
 train = optimizer.minimize(cost)
 
 sess = tf.Session()
@@ -57,7 +72,10 @@ for step in range(2001):
 
 
 print("Training End..\n\n\n\n")
+
 ## ask my Score
 print("Your score will be ", sess.run([hypothesis], feed_dict={X: [[30, 20, 40]]}))
 print("\n")
 print("My Friends Scores will be \n", sess.run([hypothesis], feed_dict={X: [[50, 44, 78], [92, 88, 99]]}))
+
+sess.close()
