@@ -96,6 +96,10 @@ class DataSet(object):
   def __init__(self, images, labels, fake_data=False, one_hot=False,
                dtype=tf.float32):
     """Construct a DataSet.
+<<<<<<< HEAD
+
+=======
+>>>>>>> 23f6e5fbc63d06091d07e1b11455cf081d09e7f8
     one_hot arg is used only if fake_data is true.  `dtype` can be either
     `uint8` to leave the input as `[0, 255]`, or `float32` to rescale into
     `[0, 1]`.
@@ -212,4 +216,9 @@ def read_data_sets(train_dir, fake_data=False, one_hot=False, dtype=tf.float32):
                                  dtype=dtype)
   data_sets.test = DataSet(test_images, test_labels, dtype=dtype)
 
+<<<<<<< HEAD
   return data_sets
+
+=======
+  return data_sets
+>>>>>>> 23f6e5fbc63d06091d07e1b11455cf081d09e7f8

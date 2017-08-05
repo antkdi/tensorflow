@@ -1,19 +1,8 @@
 import tensorflow as tf
 import numpy as np
-import matplotlib.pyplot as plt
 
 
-## 로지스틱 회귀 분석
-
-
-##input_data = np.loadtxt('data-03-diabetes.csv', delimiter=',', dtype=np.float32)
-
-##x_data = input_data[:, 0:-1]
-##y_data = input_data[:, [-1]]
-
-##print(x_data.shape, x_data, len(x_data))
-##print(y_data.shape, y_data, len(y_data))
-
+## 로지스틱 회귀 분석 (multi class )
 
 x_data = [[1, 2, 1, 1], [2, 1, 3, 2], [3, 1, 3, 4], [4, 1, 5, 5], [1, 7, 5, 5], [1, 2, 5, 6], [1, 6, 6, 6], [1, 7, 7, 7]]
 y_data = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 1, 0], [0, 1, 0], [0, 1, 0], [1, 0, 0], [1, 0, 0]]
